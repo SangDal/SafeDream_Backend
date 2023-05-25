@@ -17,7 +17,7 @@ const corsOption = {
 app.use(bodyParser.json());
 app.use(cors(corsOption))
 app.use(morgan("tiny")); // 요청온거 확인하게 
-app.use(adminRouter);
+app.use("/" adminRouter);
 app.use("/user", userRouter); // 회원관리 
 app.use("/safedream", dreamRouter);
 
