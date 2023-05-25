@@ -1,8 +1,8 @@
 import { config } from '../config.js';
-import { createPool } from 'mariadb';
+//import { createPool } from 'mariadb';
+import mysql from 'mysql2';
 
-
-const pool = createPool({
+const pool = mysql.createPool({
     host: config.db.host,
     user: config.db.user,
     database: config.db.database,
@@ -11,6 +11,4 @@ const pool = createPool({
     timezone: "+09:00"
 });
 
-//export const db = pool.promise();
-await pool.query('wrong query');
-
+export const db = pool.promise();
