@@ -9,9 +9,13 @@ import { config } from './config.js';
 import morgan from 'morgan';
 
 const app = express();
+const corsOption = {
+    origin: config.cors.allowedOrigin,
+    optionsSuccessStatus: 200
+};
 
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors(corsOption))
 app.use(morgan("tiny")); // 요청온거 확인하게 
 app.use(adminRouter);
 app.use("/user", userRouter); // 회원관리 
