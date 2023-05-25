@@ -1,5 +1,6 @@
 import { config } from '../config.js';
-import { createPool }from 'mariadb';
+import { createPool } from 'mariadb';
+
 
 const pool = createPool({
     host: config.db.host,
@@ -10,6 +11,6 @@ const pool = createPool({
     timezone: "+09:00"
 });
 
-export const db = pool.promise();
-
+//export const db = pool.promise();
+await pool.query('wrong query');
 
