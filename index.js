@@ -21,6 +21,15 @@ app.use("/", adminRouter);
 app.use("/user", userRouter); // 회원관리 
 app.use("/safedream", dreamRouter);
 
+app.use((req, res, next) => {
+    res.sendStatus(404);
+})
+// 서버에러
+app.use((error, req, res, next) => {
+    console.log(error)
+    res.sendStatus(500)
+});
+
 
 
 app.listen(config.host.port, () => {
