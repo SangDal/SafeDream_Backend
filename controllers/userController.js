@@ -97,7 +97,7 @@ export async function updateUser(req, res) {
 
         // DB에 업데이트 쿼리를 보냄
         const sql = 'UPDATE user SET username = ?, password = ?, guardianHp = ?, hp = ? WHERE userid = ?';
-        await pool.query(sql, [username, hashedPassword, guardianHp,hp, userid.userid]);
+        await pool.query(sql, [username, hashedPassword, guardianHp, hp, userid.userid]);
 
         res.status(200).json({ message: '회원 정보 수정 성공' });
     } catch (error) {
