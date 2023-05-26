@@ -28,7 +28,7 @@ export const register = async (req, res) => {
     } catch (err) {
         console.error(err);
         res.status(500).json({
-            message: "여기서 오류??"
+           message: '서버 오류'
         });
     }
 };
