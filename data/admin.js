@@ -37,7 +37,7 @@ export async function list(category, page) {
 
 // 게시판 글쓰기
 export async function createBoard(category, title, content){   
-    const userid = 'Admin'
+    const userid = 'admin'
     return db.execute('insert into board(userid, category, title, content) values (?, ?, ?, ?)', [userid, category, title, content])
     .then((result) => console.log(result[0]));
 }
