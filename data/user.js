@@ -1,11 +1,11 @@
 import { db } from '../db/database.js';
 
 export async function getAll() {
-    return db.execute('select userid, username, guardianHp, guardianHp2, hp from user').then((result) => result[0]);
+    return db.execute('select userid, username, guardianHp, hp from user').then((result) => result[0]);
 }
 
 export async function getById(id) {
-    return db.query('select userid, username, guardianHp, guardianHp2, hp from user WHERE userid = ?', [id]).then((result) => result[0][0])
+    return db.query('select userid, username, guardianHp, hp from user WHERE userid = ?', [id]).then((result) => result[0][0])
 }
 
 export async function createUser(userid, username, password, guardianHp,  hp) {
