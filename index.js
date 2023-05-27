@@ -14,7 +14,7 @@ const corsOption = {
     optionsSuccessStatus: 200
 };
 
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(cors(corsOption))
 app.use(morgan("tiny")); // 요청온거 확인하게 
 app.use("/admin", adminRouter);
