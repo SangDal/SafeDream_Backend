@@ -45,7 +45,7 @@ export async function updateUser(req, res, next) {
     res.json({ message: '회원 정보가 수정되었습니다.' });
   } catch (error) {
     console.error('회원 정보를 수정하는 중 오류가 발생했습니다.', error);
-    res.status(500).json({ error: '서버 오류' });
+    res.status(500).json({ error: '서버 오류 admin 데이터 수정 부분' });
   }
   }
   // 회원 정보 삭제
