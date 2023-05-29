@@ -37,8 +37,8 @@ export async function createUser(req, res, next){
 // 회원 정보 수정
 export async function updateUser(req, res, next) {
   try {
-    const { userid } = req.params;
-    const { username, password, guardianHp, hp } = req.body;
+//     const { userid } = req.params;
+    const { userid, username, password, guardianHp, hp } = req.body;
 
     await userRepository.update(userid, username, password, guardianHp, hp);
 
