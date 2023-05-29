@@ -1,4 +1,5 @@
 import { db } from '../db/database.js';
+import bcrypt from 'bcrypt';
 
 export async function getAll() {
     return db.execute('select userid, username, guardianHp, hp from user').then((result) => result[0]);
