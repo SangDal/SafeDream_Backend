@@ -16,11 +16,14 @@ export async function createUser(userid, username, password, guardianHp,  hp) {
 }
 
 export async function update(userid, username, password ,guardianHp, hp) {
+    
     // 해싱할 때의 라운드 수. 10은 일반적으로 권장되는 값입니다.
     const saltRounds = 12;
+    
     // bcrypt.hash 함수는 Promise를 반환하므로, 비밀번호 해싱이 완료될 때까지 기다려야 합니다.
     const hashedPassword = await bcrypt.hash(password, saltRounds);
-    const query = 'UPDATE user SET username = ?,password = ?, guardianHp = ?, hp = ? WHERE userid = ?';
+    
+    const query = 'UPDATE user SET username = ?, password = ?, guardianHp = ?, hp = ? WHERE userid = ?';
     const values = [username, hashedPassword, guardianHp, hp, userid];
     await db.query(query, values);
 }
